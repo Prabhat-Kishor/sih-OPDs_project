@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3 {
+    color: #007bff;
+    text-align: center;
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 10px 0;
+}
+
+header .navbar-nav .nav-link {
+    color: #007bff;
+    font-weight: bold;
+}
+
+header .navbar-nav .nav-link:hover {
+    color: #0056b3;
+}
+
+header img {
+    margin-right: 15px;
+}
+
+/* Dashboard Card Styles */
+.card {
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #007bff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Appointments Section Styles */
+#appointmentTableBody tr td {
+    vertical-align: middle;
+}
+
+#appointmentTableBody tr td button {
+    margin-right: 5px;
+}
+
+table thead th {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+table thead th, table tbody td {
+    text-align: center;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Bed Availability Section Styles */
+.nav-tabs .nav-link.active {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+.nav-tabs .nav-link {
+    color: #007bff;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #0056b3;
+}
+
+.tab-content .table {
+    margin-top: 10px;
+}
+
+/* Admissions Section Styles */
+#admissionForm .form-label {
+    font-weight: bold;
+    color: #007bff;
+}
+
+#admissionForm input, #admissionForm select {
+    border-radius: 5px;
+    border: 1px solid #007bff;
+}
+
+#admissionForm button {
+    background-color: #007bff;
+    border: none;
+}
+
+#admissionForm button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    padding: 20px 0;
+    text-align: center;
+    color: #6c757d;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer small {
+    display: block;
+    margin-top: 5px;
+}
