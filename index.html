@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,6 +46,8 @@
 
     <!-- Home Section -->
     <div id="homeSection" class="container my-4">
+        
+
         <div class="row">
             <div class="col-md-3">
                 <div class="card text-center">
@@ -78,8 +82,56 @@
                 </div>
             </div>
         </div>
-    </div>
 
+
+
+<div class="container">
+
+        -<!-- Image Carousel -->
+        <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-slide="5000" style="margin-bottom: 4rem;">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img width="150" height="550" src="ambulance-1005433_640.webp" class="d-block w-100" alt="First Slide">
+                </div>
+                <div class="carousel-item">
+                    <img width="150" height="550" src="hospital-room-with-hospital-bed-sign-that-says-emergency-exit_1204495-15173.webp" class="d-block w-100" alt="Second Slide">
+                </div>
+                <div class="carousel-item">
+                    <img width="150" height="550" src="hospital2.webp" class="d-block w-100" alt="Third Slide">
+                </div>
+
+                <div class="carousel-item active">
+                    <img width="150" height="550" src="muslim-nurse-taking-care-of-a-senior-patient-in-a-wheelchair.webp" class="d-block w-100" alt="First Slide">
+                </div>
+
+                <div class="carousel-item active">
+                    <img width="150" height="550" src="surgery-1807541_640.webp" class="d-block w-100" alt="First Slide">
+                </div>
+
+                <div class="carousel-item active">
+                    <img width="150" height="550" src="treatment-4099432_640.webp" class="d-block w-100" alt="First Slide">
+                </div>
+
+                <div class="carousel-item active">
+                    <img width="150" height="550" src="hospital1.webp" class="d-block w-100" alt="First Slide">
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        
+
+
+
+    </div>
+</div>
     <!-- Appointments Section -->
     <div id="appointmentsSection" class="container my-4 d-none">
         <h3>Appointments</h3>
@@ -116,7 +168,7 @@
         <div class="row">
             <div class="col-md-6">
                 <!-- Graphical representation placeholder -->
-               <!-- <img src="bed-availability-chart.png" alt="Bed Availability Chart" class="img-fluid"> -->
+                <!-- <img src="bed-availability-chart.png" alt="Bed Availability Chart" class="img-fluid"> -->
             </div>
             <div class="col-md-7">
                 <ul class="nav nav-tabs" id="bedTab" role="tablist">
@@ -179,6 +231,16 @@
                             <!-- More options as needed -->
                         </select>
                     </div>
+
+                    <div class="mb-3">
+                        <label for="admissionType" class="form-label">Admission Type</label>
+                        <select class="form-select" id="admissionType" required>
+                            <option value="Emergency">Emergency</option>
+                            <option value="Inpatient">Inpatient</option>
+                            <option value="Outpatient">Outpatient</option>
+                        </select>
+                    </div>
+
                     <div class="mb-3">
                         <label for="doctorAssigned" class="form-label">Doctor Assigned</label>
                         <input type="text" class="form-control" id="doctorAssigned">
@@ -262,4 +324,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const doctorName = prompt('Enter Doctor Name:');
         const appointmentTime = prompt('Enter Appointment Time:');
         const patientAge = prompt('Enter Patient Age:');
-        
+
         if (patientName && doctorName && appointmentTime && patientAge) {
             addAppointment(patientName, patientAge, doctorName, appointmentTime);
         }
@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         newRow.innerHTML = `
             <td>${patientName}</td>
-            <td>${patientAge}</td>
             <td>${doctorName}</td>
             <td>${appointmentTime}</td>
             <td>Confirmed</td>
@@ -123,13 +122,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // Edit appointment logic here
             const row = event.target.closest('tr');
             const patientName = row.children[0].textContent;
-            const patientAge = row.children[1].textContent;
-            const doctorName = row.children[2].textContent;
-            const appointmentTime = row.children[3].textContent;
+            const doctorName = row.children[1].textContent;
+            const appointmentTime = row.children[2].textContent;
 
             // Populate the edit form with current data
             document.getElementById('editPatientName').value = patientName;
-            document.getElementById('editPatientAge').value = patientAge;
             document.getElementById('editDoctorName').value = doctorName;
             document.getElementById('editAppointmentTime').value = appointmentTime;
 
@@ -156,15 +153,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Get the updated values from the form
         const updatedPatientName = document.getElementById('editPatientName').value;
-        const updatedPatientAge = document.getElementById('editPatientAge').value;
         const updatedDoctorName = document.getElementById('editDoctorName').value;
         const updatedAppointmentTime = document.getElementById('editAppointmentTime').value;
 
         // Update the row with new values
         row.children[0].textContent = updatedPatientName;
-        row.children[1].textContent = updatedPatientAge;
-        row.children[2].textContent = updatedDoctorName;
-        row.children[3].textContent = updatedAppointmentTime;
+        row.children[1].textContent = updatedDoctorName;
+        row.children[2].textContent = updatedAppointmentTime;
 
         // Hide the modal
         const editModal = bootstrap.Modal.getInstance(document.getElementById('editAppointmentModal'));
