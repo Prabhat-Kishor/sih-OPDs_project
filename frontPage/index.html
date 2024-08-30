@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login-container {
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .login-container img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .login-container h2 {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            color: #007bff;
+        }
+
+        .tab-content .tab-pane {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #007bff;
+        }
+
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <!-- Hospital Logo -->
+        <img src="logo.webp" alt="Hospital Logo">
+        <h2> HOSPITAL LOGIN</h2>
+        <ul class="nav nav-tabs" id="loginTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab" aria-controls="admin" aria-selected="true">Admin Login</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="doctor-tab" data-bs-toggle="tab" data-bs-target="#doctor" type="button" role="tab" aria-controls="doctor" aria-selected="false">Doctor Login</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="patient-tab" data-bs-toggle="tab" data-bs-target="#patient" type="button" role="tab" aria-controls="patient" aria-selected="false">Patient Login</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="loginTabContent">
+            <!-- Admin Login Form -->
+            <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+                <form>
+                    <div class="form-group">
+                        <label for="adminName">Name</label>
+                        <input type="text" class="form-control" id="adminName" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminAge">Age</label>
+                        <input type="number" class="form-control" id="adminAge" placeholder="Enter your age">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminGender">Gender</label>
+                        <select class="form-control" id="adminGender">
+                            <option value="">Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminDOB">Date of Birth</label>
+                        <input type="date" class="form-control" id="adminDOB">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="adminPhone">Phone No</label>
+                        <input type="text" class="form-control" id="adminName" placeholder="+91 XXXXXXXXXX">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Login</button>
+                </form>
+            </div>
+
+    
+
+
+            <!-- Doctor Login Form -->
+            <div class="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
+                <form>
+                    <div class="form-group">
+                        <label for="doctorName">Name</label>
+                        <input type="text" class="form-control" id="doctorName" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="doctorAge">Age</label>
+                        <input type="number" class="form-control" id="doctorAge" placeholder="Enter your age">
+                    </div>
+                    <div class="form-group">
+                        <label for="doctorGender">Gender</label>
+                        <select class="form-control" id="doctorGender">
+                            <option value="">Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="doctorDOB">Date of Birth</label>
+                        <input type="date" class="form-control" id="doctorDOB">
+                    </div>
+                    <button type="submit" class="btn-submit">Login</button>
+                </form>
+            </div>
+
+            <!-- Patient Login Form -->
+            <div class="tab-pane fade" id="patient" role="tabpanel" aria-labelledby="patient-tab">
+                <form>
+                    <div class="form-group">
+                        <label for="patientName">Name</label>
+                        <input type="text" class="form-control" id="patientName" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="patientAge">Age</label>
+                        <input type="number" class="form-control" id="patientAge" placeholder="Enter your age">
+                    </div>
+                    <div class="form-group">
+                        <label for="patientGender">Gender</label>
+                        <select class="form-control" id="patientGender">
+                            <option value="">Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientDOB">Date of Birth</label>
+                        <input type="date" class="form-control" id="patientDOB">
+                    </div>
+                    <button type="submit" class="btn-submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
