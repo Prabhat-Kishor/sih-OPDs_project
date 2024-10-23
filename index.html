@@ -5,9 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OPD_PROJECT</title>
+    <title >   OPDs_PROJECT</title>
+    <link rel="icon" href="logo.webp" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+     <!-- Chart.js -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 
@@ -15,8 +19,8 @@
     <!-- Header -->
     <header class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <img width="80" src="logo.webp" alt="Hospital Logo">
-            <p><b><h1>TUMAKURU HEALTHCARE SYSTEM</h1></b></p>
+            <img width="80" src="log2.png" alt="Hospital Logo">
+            <p><b><h1>CITY HEALTHCARE</h1></b></p>
             
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,10 +41,11 @@
                         <a class="nav-link" href="#" id="admissionsButton">Admissions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="reportsButton">Reports</a>
+                        <a class="nav-link" href="#" id="reportsButton">Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="settingsButton">Settings</a>
+                        <a class="nav-link" href="#" id="settingsButton">Profile</a>
+                        
                     </li>
                 </ul>
             </div>
@@ -52,48 +57,72 @@
         
 
         
-
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Appointments Today</h5>
-                        <p class="card-text">50</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Available Beds</h5>
-                        <p class="card-text">20</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Current Admissions</h5>
-                        <p class="card-text">30</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Pending Discharges</h5>
-                        <p class="card-text">5</p>
-                    </div>
+        <!-- Home Section -->
+<div id="homeSection" class="container my-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Appointments Today</h5>
+                    <p id="appointments" class="card-text">50</p>
                 </div>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Available Beds</h5>
+                    <p id="beds" class="card-text">20</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Current Admissions</h5>
+                    <p id="admissions" class="card-text">30</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Discharges</h5>
+                    <p id="discharges" class="card-text">5</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Simulate dynamic data updates
+    function updateData() {
+        document.getElementById('appointments').innerText = Math.floor(Math.random() * 100);
+        document.getElementById('beds').innerText = Math.floor(Math.random() * 50);
+        document.getElementById('admissions').innerText = Math.floor(Math.random() * 50);
+        document.getElementById('discharges').innerText = Math.floor(Math.random() * 20);
+    }
+
+    // Update data every 5 seconds
+    setInterval(updateData, 5000);
+</script>
+
+    
 
 
+<div class="container-fluid">
 
-<div class="container">
+
+     <!-- Welcome Message -->
+     <div class="mb-4">
+        <br>
+        <h3>Welcome to City Healthcare System</h3>
+        <p>Your health is our priority. We are dedicated to providing you with the highest quality medical care through our experienced staff and state-of-the-art facilities.</p>
+    </div>
 
         -<!-- Image Carousel -->
-        <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-slide="5000" style="margin-bottom: 4rem;">
+        <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-slide="2000" style="margin-bottom: 4rem;">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img width="150" height="550" src="ambulance-1005433_640.webp" class="d-block w-100" alt="First Slide">
@@ -131,88 +160,317 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        
-
-
-
     </div>
-</div>
-</div>
-    <!-- Appointments Section -->
-    <div id="appointmentsSection" class="container my-4 d-none">
-        <h3>Appointments</h3>
-        <div class="d-flex justify-content-between mb-2">
-            <input type="text" class="form-control w-25" placeholder="Search by name">
-            <button class="btn btn-primary">Book New Appointment</button>
+
+
+
+      <!-- About -->
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h4>About</h4>
+            <p>By integrating queuing theory and compartmental models of flow, we demonstrate how changing admission rates, length of stay, and bed allocation influence bed occupancy, emptiness, and rejection in departments of geriatric medicine. By extending the model to include waiting beds, we show how the provision of extra, emergency use, unstaffed, backup beds could improve performance while controlling costs. The model is applicable to all lengths of stay, admission rates, and bed allocations. The results show why 10–15% bed emptiness is necessary to maintain service efficiency and demonstrate how unstaffed beds can serve to provide a more responsive and cost-effective service. Further work is needed to test the validity and applicability of the model.</p>
         </div>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Patient Name</th>
-                    <th>Doctor</th>
-                    <th>Time</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="appointmentTableBody">
-                <tr>
-                    <td>John Doe</td>
-                    <td>Dr. Smith</td>
-                    <td>10:00 AM</td>
-                    <td>Confirmed</td>
-                    <td><button class="btn btn-sm btn-warning">Edit</button> <button class="btn btn-sm btn-danger">Cancel</button></td>
-                </tr>
-                <!-- More rows can be added dynamically using JavaScript -->
-            </tbody>
-        </table>
     </div>
+
+
+     <!-- Health Tips & News -->
+     <div class="mb-4">
+        <h4>Health Tips & News</h4>
+        <ul class="list-group">
+         <a href="https://www.orlandohealth.com/content-hub/7-ways-to-boost-your-immune-system">   <li class="list-group-item">"5 Ways to Boost Your Immune System This Season"</li> </a>
+            <li class="list-group-item">"Understanding the Benefits of Regular Health Checkups"</li>
+            <li class="list-group-item">"COVID-19: What You Need to Know for the Upcoming Flu Season"</li>
+        </ul>
+    </div>
+
+    <!-- Emergency Contacts -->   <!--The term "hotline" is often used for a direct, dedicated phone line intended for urgent or immediate assistance.-->
+    <div class="mb-4">
+        <h4 > Emergency Contacts</h4>
+        <p>For immediate assistance, call our emergency hotline: <strong>1800-123-000</strong></p>
+    </div>
+
+    
+
+</div>
+
+
+</div>
+
+    <!-- Appointments Section -->
+<div id="appointmentsSection" class="container my-4 d-none">
+    <h3>Appointments</h3>
+    <div class="d-flex justify-content-between mb-2">
+        <input type="text" class="form-control w-25" placeholder="Search by name">
+        <!-- Button to show the appointment form -->
+        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#appointmentForm">Book New Appointment</button>
+    </div>
+    
+    <!-- Appointment Booking Form (Collapsible) -->
+    <div class="collapse" id="appointmentForm">
+        <div class="card card-body mb-4">
+            <h4>New Appointment</h4>
+            <form id="newAppointmentForm">
+                <div class="mb-3">
+                    <label for="patientName" class="form-label">Patient Name</label>
+                    <input type="text" class="form-control" id="patientName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="doctor" class="form-label">Doctor</label>
+                    <input type="text" class="form-control" id="doctor" required>
+                </div>
+                <div class="mb-3">
+                    <label for="appointmentTime" class="form-label">Time</label>
+                    <input type="time" class="form-control" id="appointmentTime" required>
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" required>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Pending">Pending</option>
+                        
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Appointment</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Appointment Table -->
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Doctor</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="appointmentTableBody">
+            <tr>
+                <td>John Doe</td>
+                <td>Dr. Smith</td>
+                <td>10:00 AM</td>
+                <td>Confirmed</td>
+                <td><button class="btn btn-sm btn-warning">Edit</button> <button class="btn btn-sm btn-danger">Cancel</button></td>
+            </tr>
+            <!-- More rows can be added dynamically using JavaScript -->
+        </tbody>
+    </table>
+    <!--script code here for new booking-->
+    <script>
+        document.getElementById('newAppointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const patientName = document.getElementById('patientName').value;
+            const doctor = document.getElementById('doctor').value;
+            const appointmentTime = document.getElementById('appointmentTime').value;
+            const status = document.getElementById('status').value;
+    
+            // Create a new row in the appointments table
+            const tableBody = document.getElementById('appointmentTableBody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${patientName}</td>
+                <td>${doctor}</td>
+                <td>${appointmentTime}</td>
+                <td>${status}</td>
+                <td><button class="btn btn-sm btn-warning">Edit</button> <button class="btn btn-sm btn-danger">Cancel</button></td>
+            `;
+            tableBody.appendChild(newRow);
+    
+            // Clear and hide the form
+            document.getElementById('newAppointmentForm').reset();
+            bootstrap.Collapse.getInstance(document.getElementById('appointmentForm')).hide();
+        });
+    </script>
+    
+
+</div>
+
 
     <!-- Bed Availability Section -->
-    <div id="bedAvailabilitySection" class="container my-4 d-none">
-        <h3>Bed Availability</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <!-- Graphical representation placeholder -->
-                <!-- <img src="bed-availability-chart.png" alt="Bed Availability Chart" class="img-fluid"> -->
-                <!-- <img src="bed-availability-chart.png" alt="Bed Availability Chart" class="img-fluid"> -->
-            </div>
-            <div class="col-md-7">
-                <ul class="nav nav-tabs" id="bedTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="general-ward-tab" data-bs-toggle="tab" data-bs-target="#general-ward" type="button" role="tab" aria-controls="general-ward" aria-selected="true">General Ward</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="icu-tab" data-bs-toggle="tab" data-bs-target="#icu" type="button" role="tab" aria-controls="icu" aria-selected="false">ICU</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="maternity-tab" data-bs-toggle="tab" data-bs-target="#maternity" type="button" role="tab" aria-controls="maternity" aria-selected="false">Maternity</button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="bedTabContent">
-                    <div class="tab-pane fade show active" id="general-ward" role="tabpanel" aria-labelledby="general-ward-tab">
-                        <!-- Table for General Ward Bed Availability -->
-                        <table class="table table-hover mt-2">
-                            <thead>
-                                <tr>
-                                    <th>Bed Number</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="generalWardTableBody">
-                                <tr>
-                                    <td>1</td>
-                                    <td>Available</td>
-                                </tr>
-                                <!-- More rows can be added dynamically using JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- ICU and Maternity tabs with similar structure -->
+<div id="bedAvailabilitySection" class="container my-5 d-none">
+    <h3 class="text-center mb-4">Bed Availability</h3>
+    <div class="row">
+        <div class="col-md-5 d-flex align-items-center justify-content-center">
+            <img src="bed-availability-chart.png" alt="Bed Availability Chart" class="img-fluid shadow-sm rounded">
+        </div>
+        <div class="col-md-7">
+            <ul class="nav nav-tabs" id="bedTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="general-ward-tab" data-bs-toggle="tab" data-bs-target="#general-ward" type="button" role="tab" aria-controls="general-ward" aria-selected="true">General Ward</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="icu-tab" data-bs-toggle="tab" data-bs-target="#icu" type="button" role="tab" aria-controls="icu" aria-selected="false">ICU</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="maternity-tab" data-bs-toggle="tab" data-bs-target="#maternity" type="button" role="tab" aria-controls="maternity" aria-selected="false">Maternity</button>
+                </li>
+            </ul>
+            <div class="tab-content p-3 border border-top-0 rounded-bottom shadow-sm bg-white" id="bedTabContent">
+                <div class="tab-pane fade show active" id="general-ward" role="tabpanel" aria-labelledby="general-ward-tab">
+                    <table class="table table-striped table-hover mt-3">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Bed Number</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="generalWardTableBody">
+                            <!-- Dynamic content will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="icu" role="tabpanel" aria-labelledby="icu-tab">
+                    <table class="table table-striped table-hover mt-3">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Bed Number</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="icuTableBody">
+                            <!-- Dynamic content will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="maternity" role="tabpanel" aria-labelledby="maternity-tab">
+                    <table class="table table-striped table-hover mt-3">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Bed Number</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="maternityTableBody">
+                            <!-- Dynamic content will be injected here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-5 d-flex align-items-center justify-content-center">
+            <canvas id="bedAvailabilityChart" width="400" height="400"></canvas>
+        </div>
+        <div class="col-md-7">
+            <!-- Existing code for tabs and tables -->
+        </div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Simulated backend data
+    const bedData = {
+        generalWard: [
+            { bedNumber: 1, status: 'Available' },
+            { bedNumber: 2, status: 'Occupied' },
+            { bedNumber: 3, status: 'Available' },
+            { bedNumber: 3, status: 'Available' },
+        ],
+        icu: [
+            { bedNumber: 1, status: 'Occupied' },
+            { bedNumber: 2, status: 'Available' },
+        ],
+        maternity: [
+            { bedNumber: 1, status: 'Occupied' },
+            { bedNumber: 2, status: 'Available' },
+            { bedNumber: 2, status: 'Available' },
+        ],
+    };
+
+    // Function to render bed data
+    function renderBedData(tab, data) {
+        const tableBody = document.getElementById(`${tab}TableBody`);
+        tableBody.innerHTML = ''; // Clear existing content
+        data.forEach(bed => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${bed.bedNumber}</td>
+                <td class="${bed.status === 'Available' ? 'text-success' : 'text-danger'}">${bed.status}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Load initial data for General Ward
+    renderBedData('generalWard', bedData.generalWard);
+
+    // Add event listeners for tab changes
+    document.getElementById('general-ward-tab').addEventListener('click', () => {
+        renderBedData('generalWard', bedData.generalWard);
+    });
+
+    document.getElementById('icu-tab').addEventListener('click', () => {
+        renderBedData('icu', bedData.icu);
+    });
+
+    document.getElementById('maternity-tab').addEventListener('click', () => {
+        renderBedData('maternity', bedData.maternity);
+    });
+
+    // Function to get available and occupied counts
+    function getBedCounts(data) {
+        let available = 0;
+        let occupied = 0;
+        data.forEach(bed => {
+            if (bed.status === 'Available') {
+                available++;
+            } else {
+                occupied++;
+            }
+        });
+        return [available, occupied];
+    }
+
+    // Create the chart
+    const ctx = document.getElementById('bedAvailabilityChart').getContext('2d');
+    const bedCounts = {
+        generalWard: getBedCounts(bedData.generalWard),
+        icu: getBedCounts(bedData.icu),
+        maternity: getBedCounts(bedData.maternity)
+    };
+
+    const bedAvailabilityChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['General Ward', 'ICU', 'Maternity'],
+            datasets: [
+                {
+                    label: 'Available Beds',
+                    data: [bedCounts.generalWard[0], bedCounts.icu[0], bedCounts.maternity[0]],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Occupied Beds',
+                    data: [bedCounts.generalWard[1], bedCounts.icu[1], bedCounts.maternity[1]],
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+        }
+    });
+});
+
+
+
+    </script>
+</div>
+
 
     <!-- Admissions Section -->
     <div id="admissionsSection" class="container my-4 d-none">
@@ -281,19 +539,246 @@
         </div>
     </div>
 
-    <!-- Reports Section -->
-    <div id="reportsSection" class="container my-4 d-none">
-        <h3>Reports</h3>
-        <!-- Report generation and display can be implemented here -->
-        <p>Reports section content goes here.</p>
+ <!-- Explore Section -->
+ <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    .doctor-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .doctor-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        width: 300px;
+    }
+    .doctor-card h3 {
+        margin-top: 0;
+    }
+    .doctor-card button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .doctor-card button:hover {
+        background-color: #0056b3;
+    }
+    .search-container {
+        margin-bottom: 20px;
+    }
+    .search-container select {
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+</style>
+<script>
+    function openAppointmentForm(doctorName) {
+        document.getElementById('doctor-name').innerText = doctorName;
+        document.getElementById('appointment-form').style.display = 'block';
+    }
+
+    function closeAppointmentForm() {
+        document.getElementById('appointment-form').style.display = 'none';
+    }
+
+    function filterDoctors() {
+        const selectedSpecialty = document.getElementById('specialty-select').value.toLowerCase();
+        const cards = document.querySelectorAll('.doctor-card');
+
+        cards.forEach(card => {
+            const specialty = card.querySelector('p').textContent.toLowerCase();
+            if (selectedSpecialty === 'all' || specialty.includes(selectedSpecialty)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+    }
+    function openAppointmentForm(doctorName) {
+            // Navigate to the appointments page
+            window.location.href = 'Appointments.html';
+        }
+</script>
+<div id="reportsSection" class="container my-4 d-none">
+    <div class="search-container">
+        <select id="specialty-select" onchange="filterDoctors()">
+            <option value="all">All Specialties</option>
+            <option value="cardiologist">Cardiologist</option>
+            <option value="neurologist">Neurologist</option>
+            <option value="orthopedic surgeon">Orthopedic Surgeon</option>
+            <option value="anesthesiologist">Anesthesiologist</option>
+            <option value="dermatologist">Dermatologist</option>
+            <option value="pediatrician">Pediatrician</option>
+            <option value="oral surgeon">Oral Surgeon</option>
+        </select>
     </div>
 
-    <!-- Settings Section -->
-    <div id="settingsSection" class="container my-4 d-none">
-        <h3>Settings</h3>
-        <!-- Settings management can be implemented here -->
-        <p>Settings section content goes here.</p>
+    <h1>Doctor Profiles</h1>
+    <div class="doctor-list">
+        <div class="doctor-card">
+            <h3>Dr. Smith</h3>
+            <p><strong>Specialty:</strong> Cardiologist</p>
+            <button onclick="openAppointmentForm('Dr. Smith')">Book Appointment</button>
+        </div>
+        <div class="doctor-card">
+            <h3>Dr. Johnson</h3>
+            <p><strong>Specialty:</strong> Neurologist</p>
+            <button onclick="openAppointmentForm('Dr. Johnson')">Book Appointment</button>
+        </div>
+        <div class="doctor-card">
+            <h3>Dr. Surya</h3>
+            <p><strong>Specialty:</strong> Orthopedic Surgeon</p>
+            <button onclick="openAppointmentForm('Dr. Surya')">Book Appointment</button>
+        </div>
+        <div class="doctor-card">
+            <h3>Dr. Manoj</h3>
+            <p><strong>Specialty:</strong> Anesthesiologist</p>
+            <button onclick="openAppointmentForm('Dr. Manoj')">Book Appointment</button>
+        </div>
+        <div class="doctor-card">
+            <h3>Dr. Rahul</h3>
+            <p><strong>Specialty:</strong> Dermatologist</p>
+            <button onclick="openAppointmentForm('Dr. Rahul')">Book Appointment</button>
+        </div>
+        <div class="doctor-card">
+            <h3>Dr. Prabhanjan</h3>
+            <p><strong>Specialty:</strong> Pediatrician</p>
+            <button onclick="openAppointmentForm('Dr. Prabhanjan')">Book Appointment</button>
+        </div>
+        <div class="doctor-card">
+            <h3>Dr. Surya</h3>
+            <p><strong>Specialty:</strong> Oral Surgeon</p>
+            <button onclick="openAppointmentForm('Dr. Surya')">Book Appointment</button>
+        </div>
+        <div class="doctor-card">
+            <h3>Dr. Manoj</h3>
+            <p><strong>Specialty:</strong> Oral Surgeon</p>
+            <button onclick="openAppointmentForm('Dr. Manoj')">Book Appointment</button>
+        </div>
+        <!-- Add more doctor profiles as needed -->
     </div>
+</div>
+
+
+
+
+
+<!-- Profile Section -->
+<style>
+    /* Sidebar Styling */
+    .sidebar {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-section {
+        text-align: center;
+    }
+
+    .profile-icon {
+        margin-bottom: 15px;
+    }
+
+    .profile-icon i {
+        color: #007bff; /* Blue color for the profile icon */
+    }
+
+    .list-group-item {
+        border: none;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .list-group-item a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+
+    .list-group-item a:hover {
+        background-color: #f1f1f1;
+        color: #007bff;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004080;
+    }
+</style>
+</head>
+
+<body>
+<div id="settingsSection" class="container my-4 d-none">
+    <div id="sidebar" class="sidebar">
+        <div class="profile-section">
+            <div class="profile-icon text-center mb-3">
+                <i class="fas fa-user-circle fa-3x"></i>
+            </div>
+            <h4 class="text-center">Profile Menu</h4>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#"><i class="fas fa-user"></i> My Profile</a></li>
+                <li class="list-group-item"><a href="#"><i class="fas fa-book"></i> My Booking</a></li>
+                <li class="list-group-item"><a href="#"><i class="fas fa-trophy"></i> Health Score</a></li>
+                <li class="list-group-item"><a href="#"><i class="fas fa-users"></i> Explore Community</a></li>
+                <li class="list-group-item"><a href="#"><i class="fas fa-history"></i> Transaction History</a></li>
+                <li class="list-group-item"><a href="#"><i class="fas fa-edit"></i> Edit Profile</a></li>
+                <li class="list-group-item"><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <button id="toggleSidebar" class="btn btn-primary mt-3" onclick="toggleSidebar()">Toggle Sidebar</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function toggleSidebar() {
+        const settingsSection = document.getElementById('settingsSection');
+        if (settingsSection.classList.contains('d-none')) {
+            settingsSection.classList.remove('d-none');
+        } else {
+            settingsSection.classList.add('d-none');
+        }
+    }
+
+    function logout() {
+        // Clear user session or token
+        // Example: localStorage.removeItem('userToken');
+        // Redirect to login page
+        window.location.href = 'home.html';
+    }
+
+    // Simulate checking login status
+    function checkLoginStatus() {
+        // Example: if (localStorage.getItem('userToken')) {
+        if (true) { // Replace with actual login status check
+            document.getElementById('settingsSection').classList.remove('d-none');
+        } else {
+            window.location.href = 'index copy.html';
+        }
+    }
+
+    checkLoginStatus();
+</script>
+
+
 
     <!-- Edit Appointment Modal -->
     <div id="editAppointmentModal" class="modal fade" tabindex="-1" aria-labelledby="editAppointmentModalLabel" aria-hidden="true">
@@ -331,6 +816,81 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+
+
+
+
+
+
+
+
+
+      <!-- Footer -->
+      <footer class="bg-light py-3 text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Tumakuru Healthcare System. All rights reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a>
+            </p>
+        </div>
+        <!--footer css-->
+        <style>
+            html, body {
+        height: 100%;
+        margin: 0;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    footer {
+        margin-top: auto;
+    }
+    
+    .navbar-brand h1 {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+    
+        </style>
+    </footer>
+
+
+ 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('homeButton').addEventListener('click', function() {
+            showSection('homeSection');
+        });
+        document.getElementById('appointmentsButton').addEventListener('click', function() {
+            showSection('appointmentsSection');
+        });
+        document.getElementById('bedAvailabilityButton').addEventListener('click', function() {
+            showSection('bedAvailabilitySection');
+        });
+        document.getElementById('admissionsButton').addEventListener('click', function() {
+            showSection('admissionsSection');
+        });
+        document.getElementById('reportsButton').addEventListener('click', function() {
+            showSection('reportsSection');
+        });
+        document.getElementById('settingsButton').addEventListener('click', function() {
+            showSection('settingsSection');
+        });
+
+        function showSection(sectionId) {
+            document.querySelectorAll('div.container.my-4').forEach(function(section) {
+                section.classList.add('d-none');
+            });
+            document.getElementById(sectionId).classList.remove('d-none');
+        }
+    </script>
+
+
 </body>
 
 

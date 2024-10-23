@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPDs_PROJECT</title>
+    <link rel="icon" href="logo.webp" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .doctor-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .doctor-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            width: 300px;
+        }
+        .doctor-card h3 {
+            margin-top: 0;
+        }
+        .doctor-card button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .doctor-card button:hover {
+            background-color: #0056b3;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-container select {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <img width="80" src="log2.png" alt="Hospital Logo">
+            <h1 class="navbar-brand mb-0">CITY HEALTHCARE</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="homeButton">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index copy.html" id="settingsButton">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Explore Section -->
+    <div id="exploreSection" class="container my-4">
+        <div class="search-container">
+            <select id="specialty-select" onchange="filterDoctors()">
+                <option value="all">All Specialties</option>
+                <option value="cardiologist">Cardiologist</option>
+                <option value="neurologist">Neurologist</option>
+                <option value="orthopedic surgeon">Orthopedic Surgeon</option>
+                <option value="anesthesiologist">Anesthesiologist</option>
+                <option value="dermatologist">Dermatologist</option>
+                <option value="pediatrician">Pediatrician</option>
+                <option value="oral surgeon">Oral Surgeon</option>
+            </select>
+        </div>
+
+        <h1>Doctor Profiles</h1>
+        <div class="doctor-list">
+            <div class="doctor-card">
+                <h3>Dr. Smith</h3>
+                <p><strong>Specialty:</strong> Cardiologist</p>
+                <button onclick="openAppointmentForm('Dr. Smith')">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <h3>Dr. Johnson</h3>
+                <p><strong>Specialty:</strong> Neurologist</p>
+                <button onclick="openAppointmentForm('Dr. Johnson')">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <h3>Dr. Surya</h3>
+                <p><strong>Specialty:</strong> Orthopedic Surgeon</p>
+                <button onclick="openAppointmentForm('Dr. Surya')">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <h3>Dr. Manoj</h3>
+                <p><strong>Specialty:</strong> Anesthesiologist</p>
+                <button onclick="openAppointmentForm('Dr. Manoj')">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <h3>Dr. Rahul</h3>
+                <p><strong>Specialty:</strong> Dermatologist</p>
+                <button onclick="openAppointmentForm('Dr. Rahul')">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <h3>Dr. Prabhanjan</h3>
+                <p><strong>Specialty:</strong> Pediatrician</p>
+                <button onclick="openAppointmentForm('Dr. Prabhanjan')">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <h3>Dr. Surya</h3>
+                <p><strong>Specialty:</strong> Oral Surgeon</p>
+                <button onclick="openAppointmentForm('Dr. Surya')">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <h3>Dr. Manoj</h3>
+                <p><strong>Specialty:</strong> Oral Surgeon</p>
+                <button onclick="openAppointmentForm('Dr. Manoj')">Book Appointment</button>
+            </div>
+            <!-- Add more doctor profiles as needed -->
+        </div>
+    </div>
+
+    <!-- Appointments Section -->
+    <div id="appointmentsSection" class="container my-4 d-none">
+        <h3>Appointments</h3>
+        <div class="d-flex justify-content-between mb-2">
+            <input type="text" class="form-control w-25" placeholder="Search by name">
+            <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#appointmentForm">Book New Appointment</button>
+        </div>
+        
+        <!-- Appointment Booking Form (Collapsible) -->
+        <div class="collapse" id="appointmentForm">
+            <div class="card card-body mb-4">
+                <h4>New Appointment</h4>
+                <form id="newAppointmentForm">
+                    <div class="mb-3">
+                        <label for="patientName" class="form-label">Patient Name</label>
+                        <input type="text" class="form-control" id="patientName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="doctor" class="form-label">Doctor</label>
+                        <input type="text" class="form-control" id="doctor" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="appointmentTime" class="form-label">Time</label>
+                        <input type="time" class="form-control" id="appointmentTime" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" required>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Appointment</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Appointment Table -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Doctor</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="appointmentTableBody">
+                <tr>
+                    <td>John Doe</td>
+                    <td>Dr. Smith</td>
+                    <td>10:00 AM</td>
+                    <td>Confirmed</td>
+                    <td><button class="btn btn-sm btn-warning">Edit</button> <button class="btn btn-sm btn-danger">Cancel</button></td>
+                </tr>
+                <!-- More rows can be added dynamically using JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-3 text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Tumakuru Healthcare System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openAppointmentForm(doctorName) {
+            document.getElementById('exploreSection').classList.add('d-none');
+            document.getElementById('appointmentsSection').classList.remove('d-none');
+            document.getElementById('doctor').value = doctorName;
+        }
+
+        function filterDoctors() {
+            const selectedSpecialty = document.getElementById('specialty-select').value.toLowerCase();
+            const cards = document.querySelectorAll('.doctor-card');
+
+            cards.forEach(card => {
+                const specialty = card.querySelector('p').textContent.toLowerCase();
+                if (selectedSpecialty === 'all' || specialty.includes(selectedSpecialty)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('newAppointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const patientName = document.getElementById('patientName').value;
+            const doctor = document.getElementById('doctor').value;
+            const appointmentTime = document.getElementById('appointmentTime').value;
+            const status = document.getElementById('status').value;
+    
+            // Create a new row in the appointments table
+            const tableBody = document.getElementById('appointmentTableBody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${patientName}</td>
+                <td>${doctor}</td>
+                <td>${appointmentTime}</td>
+                <td>${status}</td>
+                <td><button class="btn btn-sm btn-warning">Edit</button> <button class="btn btn-sm btn-danger">Cancel</button></td>
+            `;
+            tableBody.appendChild(newRow);
+    
+            // Clear and hide the form
+            document.getElementById('newAppointmentForm').reset();
+            bootstrap.Collapse.getInstance(document.getElementById('appointmentForm')).hide();
+        });
+    </script>
+</body>
+
+</html>

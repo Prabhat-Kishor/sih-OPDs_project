@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     showSection('home');
 
     // Handle new appointment booking
-    const bookAppointmentButton = document.querySelector('.btn-primary');
+  /*  const bookAppointmentButton = document.querySelector('.btn-primary');
     bookAppointmentButton.addEventListener('click', function () {
         const patientName = prompt('Enter Patient Name:');
         const doctorName = prompt('Enter Doctor Name:');
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             addAppointment(patientName, patientAge, doctorName, appointmentTime);
         }
     });
-
+*/
     // Add new appointment to the table
     function addAppointment(patientName, patientAge, doctorName, appointmentTime) {
         const appointmentTableBody = document.getElementById('appointmentTableBody');
@@ -165,4 +165,29 @@ document.addEventListener('DOMContentLoaded', function () {
         const editModal = bootstrap.Modal.getInstance(document.getElementById('editAppointmentModal'));
         editModal.hide();
     });
+
+
+
+    
 });
+// Toggles the sidebar visibility
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const toggleButton = document.getElementById('toggleSidebar');
+    sidebar.classList.toggle('hidden');
+    toggleButton.classList.toggle('hidden');
+}
+
+// Clears the notification badge
+function clearNotification() {
+    const badge = document.getElementById('badge');
+    badge.style.display = 'none';
+}
+
+// Toggles language (just a mock function)
+function toggleLanguage() {
+    alert("Language toggled!");
+}
+
+
+
